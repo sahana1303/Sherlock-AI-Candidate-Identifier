@@ -169,7 +169,7 @@ st.dataframe(
         subset=["🎯 Confidence"],
         color="#14532d"
     ),
-    use_container_width=True
+    width="stretch"
 )
 st.markdown("---")
 st.subheader("📊 Confidence Visualization")
@@ -238,7 +238,7 @@ st.download_button(
     csv,
     file_name="candidate_report.csv",
     mime="text/csv",
-    use_container_width=True
+    width="stretch"
 )
 # ------------------------------------------
 # Dashboard Metrics
@@ -359,7 +359,7 @@ st.info("🎥 Live webcam is available in the local version. The cloud demo disp
 st.image(
     "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900",
     caption="Candidate Verification Dashboard",
-    use_container_width=True,
+    width="stretch"
 )
 
 col1, col2 = st.columns(2)
@@ -538,7 +538,7 @@ gauge = go.Figure(go.Indicator(
 
 gauge.update_layout(height=400)
 
-st.plotly_chart(gauge, use_container_width=True)
+st.plotly_chart(gauge, width="stretch")
 # ------------------------------------------
 # Live Confidence History
 # ------------------------------------------
@@ -656,7 +656,7 @@ bar_chart.update_layout(
     height=450
 )
 
-st.plotly_chart(bar_chart, use_container_width=True)
+st.plotly_chart(bar_chart, width="stretch")
 
 # ------------------------------------------
 # Donut Chart
@@ -684,7 +684,7 @@ donut.update_layout(
     showlegend=True
 )
 
-st.plotly_chart(donut, use_container_width=True)
+st.plotly_chart(donut, width="stretch")
 
 # ------------------------------------------
 # Candidate Details
@@ -763,7 +763,7 @@ log = pd.DataFrame({
 
 st.dataframe(
     log,
-    use_container_width=True,
+    width="stretch"
     hide_index=True
 )
 
