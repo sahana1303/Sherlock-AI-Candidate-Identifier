@@ -1,6 +1,9 @@
 streamlit
+streamlit-webrtc
+opencv-python-headless
+av
 pandas
-matplotlib
 plotly
+matplotlib
 rapidfuzz
 streamlit-autorefresh
