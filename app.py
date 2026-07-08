@@ -374,51 +374,6 @@ with col2:
 
 st.metric("Confidence", "96%")
 
-with cam_col1:
-
-
-    st.markdown("---")
-
-left, right = st.columns([3,1])
-
-with left:
-    st.success("🟢 Live Camera Connected")
-    st.info("Candidate is being monitored in real time.")
-    st.progress(0.96)
-
-with right:
-    import random
-
-    st.metric("Face Match", f"{random.randint(92,99)}%")
-    st.metric("Eye Contact", f"{random.randint(85,98)}%")
-    st.metric("Liveness", f"{random.randint(94,99)}%")
-    st.metric("Confidence", f"{random.randint(90,99)}%")
-
-with cam_col2:
-    import random
-
-    st.metric("Face Match", f"{random.randint(92,99)}%")
-    st.metric("Eye Contact", f"{random.randint(85,98)}%")
-    st.metric("Liveness", f"{random.randint(94,99)}%")
-    st.metric("Confidence", f"{random.randint(90,99)}%")
-
-    st.success("🟢 VERIFIED")
-
-    left, right = st.columns([1,2])
-
-    with left:
-        st.metric("Face Match", "95%")
-        st.progress(0.95)
-
-    with right:
-        st.success("✅ Face Detected")
-        st.success("✅ Eyes Open")
-        st.success("✅ Looking at Camera")
-        st.success("✅ Identity Verified")
-
-st.info(
-    "The AI verified that the live webcam image matches the registered candidate identity."
-)
 
 
 
