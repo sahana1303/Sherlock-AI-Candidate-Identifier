@@ -1,0 +1,5 @@
+participant_id,display_name,email,speaking_time,webcam,transcript
+P1,MacBook Pro,sahana@gmail.com,603,ON,"Hello, I am Sahana. I recently graduated in AI and ML."
+P2,Rahul Sharma,rahul@gmail.com,439,ON,"Good morning everyone."
+P3,Interviewer,hr@company.com,763,OFF,"Welcome to the interview."
+P4,Observer,,358,ON,""
