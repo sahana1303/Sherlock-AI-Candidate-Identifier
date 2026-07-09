@@ -156,13 +156,13 @@ Project evaluation and testing details are available in:
 
 # 👩‍💻 Developer
 
-**Sahana Bhairav**
+Sahana Bhairav
 
 - GitHub: https://github.com/sahana1303
-- Email: sahana@gmail.com
+- Email: sahanabhairav339@gmail.com
 
 ---
 
 # 📜 License
 
-This project was developed as part of the **Sherlock AI Candidate Identifier Internship Challenge** for educational and evaluation purposes.
+This project was developed as part of the Sherlock AI Candidate Identifier Internship Challenge for educational and evaluation purposes.
