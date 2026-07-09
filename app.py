@@ -423,6 +423,8 @@ for time, event in timeline:
     st.write(f"**{time}** — {event}")
     st.markdown("---")
 
+st.markdown("---")
+
 st.subheader("🏆 Final AI Decision")
 
 overall_score = 94
@@ -430,8 +432,13 @@ overall_score = 94
 st.metric("Overall AI Confidence", f"{overall_score}%")
 
 if overall_score >= 90:
-    st
-    st.markdown("---")
+    st.success("✅ VERIFIED")
+elif overall_score >= 70:
+    st.warning("⚠ Needs Manual Review")
+else:
+    st.error("❌ Candidate Rejected")
+
+st.markdown("---")
 
 report = """
 Sherlock AI Candidate Report
