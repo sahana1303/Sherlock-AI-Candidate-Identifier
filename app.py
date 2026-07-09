@@ -194,7 +194,7 @@ chart.update_layout(
     xaxis_title="Participants"
 )
 
-st.plotly_chart(chart, use_container_width=True)    
+st.plotly_chart(chart, width="stretch")   
 
 st.markdown("---")
 # ==========================================
@@ -470,135 +470,9 @@ st.download_button(
 
 
 
+    
 
 
-skills = [
-    "Python",
-    "Machine Learning",
-    "SQL",
-    "Streamlit",
-    "Communication",
-    "Problem Solving",
-    "NLP"
-]
-
-cols = st.columns(4)
-
-for i, skill in enumerate(skills):
-    cols[i % 4].success(f"✅ {skill}")
-
-st.info(
-"""
-The AI automatically extracted these skills from the
-candidate's resume and interview transcript.
-"""
-)
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.metric("😊 Sentiment", "Positive")
-
-with col2:
-    st.metric("💬 Communication", "8.8 / 10")
-
-with col3:
-    st.metric("📝 Grammar", "9.2 / 10")
-
-st.info(
-"""
-### 🧠 AI Summary
-
-The candidate introduced themselves confidently and answered
-questions fluently. Communication was clear and professional.
-Technical keywords related to Python, AI, and Machine Learning
-were detected throughout the interview.
-
-Overall impression: Strong communication skills with good
-technical knowledge.
-"""
-)
-
-st.success("⭐ Interview Readiness Score : 91%")
-st.subheader("🏆 Final Prediction")
-if winner["Confidence"] >= 80:
-    st.success(f"✅ Identity Verified ({winner['Confidence']}% Confidence)")
-elif winner["Confidence"] >= 60:
-    st.info(f"🟢 Candidate Verified ({winner['Confidence']}% Confidence)")
-else:
-    st.error(f"❌ Manual Verification Required ({winner['Confidence']}% Confidence)")
-st.markdown("### 🧠 AI Detection Summary")
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.metric("🎤 Voice Match", "92%")
-
-with col2:
-    st.metric("📷 Face Match", "95%")
-
-with col3:
-    st.metric("📧 Email Match", "100%")
-
-left, right = st.columns([1, 2])
-
-with left:
-
-    st.success("🏆 VERIFIED CANDIDATE")
-
-    st.markdown(f"### {winner['Participant']}")
-    st.caption("The AI has identified this participant with the highest confidence score.")
-
-    st.markdown("### Confidence Score")
-
-    st.markdown(
-        f"""
-        <h1 style="color:#00FF99;font-size:60px;">
-            {winner['Confidence']}%
-        </h1>
-        """,
-        unsafe_allow_html=True
-    )
-
-    st.progress(winner["Confidence"] / 100)
-
-    st.success("🟢 Status : VERIFIED")
-    st.markdown("---")
-st.subheader("📊 Candidate Match Breakdown")
-
-breakdown = pd.DataFrame({
-    "Feature": [
-        "Email Match",
-        "Speaking Time",
-        "Webcam Status",
-        "AI Keywords",
-    ],
-    "Score": [
-        30,
-        15,
-        10,
-        12,
-    ]
-})
-
-st.dataframe(
-    breakdown,
-    use_container_width=True,
-    hide_index=True
-)
-with right:
-
-    st.info("### 🧠 AI Explainability")
-
-    for reason in winner["Reason"].split(", "):
-        st.write("✅", reason)
-
-    st.markdown("---")
-
-    st.success("### 🤖 AI Recommendation")
-    st.markdown("---")
-
-st.warning("### ⚠️ AI Risk Analysis")
 
 if winner["Confidence"] >= 80:
     st.success("Low Risk • Identity confidently verified.")
@@ -614,26 +488,6 @@ else:
     else:
         st.write("⚠️ Confidence is low. Manual verification is recommended.")
 st.markdown("---")
-st.subheader("🎯 AI Confidence Gauge")
-
-gauge = go.Figure(go.Indicator(
-    mode="gauge+number",
-    value=winner["Confidence"],
-    title={"text": "Candidate Confidence"},
-    gauge={
-        "axis": {"range": [0, 100]},
-        "bar": {"color": "green"},
-        "steps": [
-            {"range": [0, 40], "color": "#8B0000"},
-            {"range": [40, 70], "color": "#FFD700"},
-            {"range": [70, 100], "color": "#228B22"}
-        ]
-    }
-))
-
-gauge.update_layout(height=400)
-
-st.plotly_chart(gauge, width="stretch")
 # ------------------------------------------
 # Live Confidence History
 # ------------------------------------------
@@ -641,79 +495,7 @@ st.plotly_chart(gauge, width="stretch")
 st.markdown("---")
 st.markdown("---")
 st.markdown("---")
-st.subheader("⏱️ Interview Timeline")
 
-timeline = pd.DataFrame({
-    "Time": [
-        "10:00 AM",
-        "10:01 AM",
-        "10:03 AM",
-        "10:05 AM"
-    ],
-    "Event": [
-        "Candidate Joined",
-        "Webcam Verified",
-        "AI Detection Started",
-        "Candidate Identified"
-    ]
-})
-
-st.table(timeline)
-st.subheader("🟢 Live Interview Status")
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.success("🎤 Microphone : ON")
-
-with col2:
-    st.success("📷 Webcam : ON")
-
-with col3:
-    st.success("🤖 AI Detection : Running")
-    st.markdown("---")
-
-st.subheader("🖥️ System Health")
-
-c1, c2, c3, c4 = st.columns(4)
-
-with c1:
-    st.success("🟢 Camera")
-    st.write("Operational")
-
-with c2:
-    st.success("🟢 Microphone")
-    st.write("Operational")
-
-with c3:
-    st.success("🟢 AI Engine")
-    st.write("Running")
-
-with c4:
-    st.success("🟢 Database")
-    st.write("Connected")
-st.subheader("📈 Live Confidence History")
-
-if "history" not in st.session_state:
-    st.session_state.history = []
-
-st.session_state.history.append(
-    winner["Confidence"]
-)
-
-st.session_state.history = st.session_state.history[-20:]
-
-history_df = pd.DataFrame({
-    "Run": range(
-        1,
-        len(st.session_state.history) + 1
-    ),
-    "Confidence": st.session_state.history
-})
-
-history_df = history_df.set_index("Run")
-
-st.line_chart(history_df)
 # ------------------------------------------
 # Confidence Comparison
 # ------------------------------------------
@@ -732,7 +514,6 @@ with risk2:
 
 with risk3:
     st.warning("⚠️ Voice Match: Medium Risk")
-st.subheader("📊 Confidence Comparison")
 
 bar_chart = px.bar(
     result_df,
@@ -758,28 +539,6 @@ st.plotly_chart(bar_chart, width="stretch")
 # ------------------------------------------
 
 st.markdown("---")
-st.subheader("🍩 Confidence Distribution")
-
-donut = px.pie(
-    result_df,
-    values="Confidence",
-    names="Participant",
-    hole=0.55,
-    color="Participant",
-    color_discrete_sequence=px.colors.qualitative.Set2
-)
-
-donut.update_traces(
-    textposition="inside",
-    textinfo="percent+label"
-)
-
-donut.update_layout(
-    height=500,
-    showlegend=True
-)
-
-st.plotly_chart(donut, width="stretch")
 
 # ------------------------------------------
 # Candidate Details
@@ -790,25 +549,6 @@ st.plotly_chart(donut, width="stretch")
 # Detection Summary
 # ------------------------------------------
 st.markdown("---")
-st.subheader("📌 Detection Summary")
-
-c1, c2, c3, c4 = st.columns(4)
-
-with c1:
-    st.success("👥 Participants")
-    st.metric("Participants", len(participants))
-
-with c2:
-    st.success("🎯 Winner")
-    st.write(f"### {winner['Participant']}")
-
-with c3:
-    st.success("📊 Confidence")
-    st.metric("Confidence", f"{winner['Confidence']}%")
-
-with c4:
-    st.success("🟢 Status")
-    st.metric("Status", "Completed")
 
 # ------------------------------------------
 # Download Report
@@ -816,51 +556,6 @@ with c4:
 # Footer
 # ------------------------------------------
 st.markdown("---")
-
-# ==============================
-# HR Activity Log
-# ==============================
-st.markdown("---")
-st.subheader("📄 Export Report")
-
-st.download_button(
-    "📥 Download AI Report (CSV)",
-    csv,
-    file_name="candidate_report.csv",
-    mime="text/csv",
-    use_container_width=True
-)
-st.subheader("📜 HR Activity Log")
-
-log = pd.DataFrame({
-    "Time": [
-        "10:00 AM",
-        "10:01 AM",
-        "10:02 AM",
-        "10:03 AM",
-        "10:04 AM"
-    ],
-    "Activity": [
-        "Candidate joined interview",
-        "Webcam verified",
-        "Microphone verified",
-        "AI identification completed",
-        "Report ready for download"
-    ],
-    "Status": [
-        "✅",
-        "✅",
-        "✅",
-        "✅",
-        "✅"
-    ]
-})
-
-st.dataframe(
-    log,
-    width="stretch",
-    hide_index=True,
-)
 
 # ------------------------------------------
 # Footer
