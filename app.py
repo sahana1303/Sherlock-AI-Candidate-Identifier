@@ -763,8 +763,8 @@ log = pd.DataFrame({
 
 st.dataframe(
     log,
-    width="stretch"
-    hide_index=True
+    width="stretch",
+    hide_index=True,
 )
 
 # ------------------------------------------
