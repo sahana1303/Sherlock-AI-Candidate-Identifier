@@ -347,14 +347,119 @@ Candidate satisfies most required skills.
 st.markdown("---")
 st.subheader("🤖 AI Transcript Analysis")
 st.markdown("---")
+st.success("Interview conversation analyzed successfully.")
+
+st.write("**Summary**")
+st.write("""
+The candidate answered confidently, communicated clearly,
+and demonstrated good problem-solving skills.
+""")
+
+st.progress(0.92)
+st.caption("Communication Score: 92%")
 st.subheader("🧠 AI Skill Extraction")
 st.markdown("---")
+skills = [
+    "Python",
+    "Machine Learning",
+    "SQL",
+    "Streamlit",
+    "Communication",
+    "Problem Solving",
+    "NLP"
+]
+
+cols = st.columns(3)
+
+for i, skill in enumerate(skills):
+    with cols[i % 3]:
+        st.success(f"✅ {skill}")
 # -------------------------------
 # Live Face Verification
 # -------------------------------
 st.subheader("📷 Live Face Verification")
+st.markdown("---")
+
+st.subheader("📊 Candidate Score")
+
+st.metric("Overall Score", "94%")
+st.progress(0.94)
+st.markdown("---")
+
+st.subheader("🚨 AI Risk Detection")
+
+risk_score = 8
+
+st.metric("Suspicion Score", f"{risk_score}%")
+
+if risk_score < 20:
+    st.success("✅ No suspicious behaviour detected.")
+elif risk_score < 50:
+    st.warning("⚠ Minor suspicious behaviour.")
+else:
+    st.error("🚨 High cheating probability.")
+
+st.success("Recommendation: Shortlist Candidate")
 
 st.success("✅ Candidate Verified")
+# ----------------------------
+# Detection Timeline
+# ----------------------------
+
+st.markdown("---")
+
+st.subheader("📅 Detection Timeline")
+
+timeline = [
+    ("10:00:01", "Interview Started"),
+    ("10:00:12", "Face Verified"),
+    ("10:01:08", "Eye Contact Stable"),
+    ("10:03:40", "Voice Matched"),
+    ("10:05:15", "Identity Confirmed"),
+    ("10:06:02", "No Suspicious Activity")
+]
+
+for time, event in timeline:
+    st.write(f"**{time}** — {event}")
+    st.markdown("---")
+
+st.subheader("🏆 Final AI Decision")
+
+overall_score = 94
+
+st.metric("Overall AI Confidence", f"{overall_score}%")
+
+if overall_score >= 90:
+    st
+    st.markdown("---")
+
+report = """
+Sherlock AI Candidate Report
+
+Candidate Name : Sahana Bhairav
+
+Interview Status : VERIFIED
+
+Face Match : 95%
+Eye Contact : 91%
+Liveness : 97%
+Confidence : 96%
+
+Risk Score : 8%
+
+Overall AI Confidence : 94%
+
+Recommendation :
+Candidate Successfully Verified.
+"""
+
+st.download_button(
+    label="📥 Download Candidate Report",
+    data=report,
+    file_name="Sherlock_AI_Report.txt",
+    mime="text/plain"
+)
+
 
 st.metric("Face Match", "95%")
 st.metric("Eye Contact", "91%")
@@ -781,4 +886,16 @@ Built with ❤️ using Streamlit • Plotly • RapidFuzz<br><br>
 </div>
 """,
 unsafe_allow_html=True
+)
+st.markdown("---")
+
+st.markdown(
+    """
+    <div style="text-align:center; color:gray; padding:20px;">
+        <h4>🕵️ Sherlock AI Candidate Identifier</h4>
+        <p>Built with ❤️ using Python, Streamlit & AI</p>
+        <p>© 2026 | Product Internship Demo</p>
+    </div>
+    """,
+    unsafe_allow_html=True
 )
