@@ -468,22 +468,6 @@ st.download_button(
 )
 
 
-st.metric("Face Match", "95%")
-st.metric("Eye Contact", "91%")
-st.metric("Liveness", "97%")
-st.metric("Confidence", "96%")
-
-col1, col2 = st.columns(2)
-
-with col1:
-    st.success("🟢 Face Detected")
-    st.metric("Face Match", "95%")
-
-with col2:
-    st.metric("Eye Contact", "91%")
-    st.metric("Liveness", "97%")
-
-st.metric("Confidence", "96%")
 
 
 
