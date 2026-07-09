@@ -47,7 +47,7 @@ An AI-powered real-time candidate identification system built with **Python** an
 
 # 🏗️ System Architecture
 
-![System Architecture](architecture.png)
+architecture.png
 
 ---
 
