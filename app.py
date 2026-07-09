@@ -878,13 +878,7 @@ st.dataframe(
 st.markdown("---")
 
 st.markdown(
-    """
-<div style="text-align:center;color:gray;font-size:14px">
-🕵️ Sherlock AI Candidate Identifier<br>
-Built with ❤️ using Streamlit • Plotly • RapidFuzz<br><br>
-© 2026 Sherlock AI | AI Powered Candidate Verification System
-</div>
-""",
+    
 unsafe_allow_html=True
 )
 st.markdown("---")
@@ -894,7 +888,7 @@ st.markdown(
     <div style="text-align:center; color:gray; padding:20px;">
         <h4>🕵️ Sherlock AI Candidate Identifier</h4>
         <p>Built with ❤️ using Python, Streamlit & AI</p>
-        <p>© 2026 | Product Internship Demo</p>
+        <p>© 2026 |</p>
     </div>
     """,
     unsafe_allow_html=True
