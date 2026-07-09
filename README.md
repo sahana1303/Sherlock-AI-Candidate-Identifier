@@ -45,9 +45,12 @@ An AI-powered real-time candidate identification system built with **Python** an
 
 ---
 
-# 🏗️ System Architecture
+ 🏗️ System Architecture
 
-architecture.png
+
+The architecture diagram for this project is included in the repository as architecture.png.
+
+It illustrates the complete workflow from candidate data loading to AI scoring, candidate ranking, and the Streamlit dashboard.
 
 ---
 
